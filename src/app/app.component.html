@@ -1,0 +1,96 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  #title {
+    text-align: center;
+  }
+
+</style>
+<!-- Toolbar -->
+<div id="title">
+  <h1>{{title}}</h1>
+  <button type="button" class="btn btn-primary" [style.visibility]="visibilityButtonCategory" (click)="goToPlayerFormPage()">Formulaire des joueurs</button>
+</div>
+
+<app-playerform [style.visibility]="visibleAppPlayerform" (sendRequestToFather)="goToCategoryPage($event)"></app-playerform>
+<app-category [style.visibility]="visibleAppCategory" (sendRequestToFather)="displayToast($event)"></app-category>
+<div id="launchButton">
+    <app-dictionnaire [style.visibility]="visibleAppDictionnaire" (sendRandomWord)='checkWord($event)'  getCategory={{nameCategory}}></app-dictionnaire>
+</div>
+<div [style.visibility]="visibleHungTable">
+    <div id="firstContainer">
+        <div class="customerDiv">
+            <h4>Mot incorrect</h4>
+            <ul>
+                <li *ngFor="let word of wrongWords">
+                    {{word}}
+                </li>
+            </ul>
+        </div>
+        <div id="wordContainer">
+            <div id="wordAtFind">
+                <p Id="motactuel">{{wordSize.getWordSize()}}</p> 
+            </div>
+            <div id="countEndGame">
+                <h2 >{{ valueBeforeEndGame }}</h2>
+            </div>
+        </div>
+        <div class="customerDiv">
+            <h4>Scores :</h4>
+            <ul id="playerList">
+                <li>{{player1?.getInfo()}}</li>
+                <li>{{player2?.getInfo()}}</li>
+            </ul>
+        </div>   
+    </div>
+    <div id="secondContainer">
+        <div style="flex-grow: 6">
+            <form>
+                <p>Tour du joueur {{ numberPlayer }}</p>
+                <input type="text" #inputPlayer><br>
+                <button type="button" class="btn btn-primary" (click)="submit()">Valider</button>
+            </form>
+        </div>
+    </div>
+    <div id="alphabetButtonList">
+        <button class="alphabetButton" (click)="getValue('a')" [ngStyle]="{'background': colorA}">A</button>
+        <button class="alphabetButton" (click)="getValue('b')" [ngStyle]="{'background': colorB}">B</button>
+        <button class="alphabetButton" (click)="getValue('c')" [ngStyle]="{'background': colorC}">C</button>
+        <button class="alphabetButton" (click)="getValue('d')" [ngStyle]="{'background': colorD}">D</button>
+        <button class="alphabetButton" (click)="getValue('e')" [ngStyle]="{'background': colorE}">E</button>
+        <button class="alphabetButton" (click)="getValue('f')" [ngStyle]="{'background': colorF}">F</button>
+        <button class="alphabetButton" (click)="getValue('g')" [ngStyle]="{'background': colorG}">G</button>
+        <button class="alphabetButton" (click)="getValue('h')" [ngStyle]="{'background': colorH}">H</button>
+        <button class="alphabetButton" (click)="getValue('i')" [ngStyle]="{'background': colorI}">I</button>
+        <button class="alphabetButton" (click)="getValue('j')" [ngStyle]="{'background': colorJ}">J</button>
+        <button class="alphabetButton" (click)="getValue('k')" [ngStyle]="{'background': colorK}">K</button>
+        <button class="alphabetButton" (click)="getValue('l')" [ngStyle]="{'background': colorL}">L</button>
+        <button class="alphabetButton" (click)="getValue('m')" [ngStyle]="{'background': colorM}">M</button>
+        <button class="alphabetButton" (click)="getValue('n')" [ngStyle]="{'background': colorN}">N</button>
+        <button class="alphabetButton" (click)="getValue('o')" [ngStyle]="{'background': colorO}">O</button>
+        <button class="alphabetButton" (click)="getValue('p')" [ngStyle]="{'background': colorP}">P</button>
+        <button class="alphabetButton" (click)="getValue('q')" [ngStyle]="{'background': colorQ}">Q</button>
+        <button class="alphabetButton" (click)="getValue('r')" [ngStyle]="{'background': colorR}">R</button>
+        <button class="alphabetButton" (click)="getValue('s')" [ngStyle]="{'background': colorS}">S</button>
+        <button class="alphabetButton" (click)="getValue('t')" [ngStyle]="{'background': colorT}">T</button>
+        <button class="alphabetButton" (click)="getValue('u')" [ngStyle]="{'background': colorU}">U</button>
+        <button class="alphabetButton" (click)="getValue('v')" [ngStyle]="{'background': colorV}">V</button>
+        <button class="alphabetButton" (click)="getValue('w')" [ngStyle]="{'background': colorW}">W</button>
+        <button class="alphabetButton" (click)="getValue('x')" [ngStyle]="{'background': colorX}">X</button>
+        <button class="alphabetButton" (click)="getValue('y')" [ngStyle]="{'background': colorY}">Y</button>
+        <button class="alphabetButton" (click)="getValue('z')" [ngStyle]="{'background': colorZ}">Z</button>
+    </div>
+</div>
+<router-outlet></router-outlet>

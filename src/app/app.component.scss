@@ -1,0 +1,49 @@
+button {
+    margin-top: 10px;
+}
+// PAGE DU PENDU
+#firstContainer {
+    display: flex;
+    min-height: 20em;
+}
+#firstContainer {
+    padding-top: 20px;
+}
+#secondContainer {
+    text-align: center;
+}
+.customerDiv {
+    border: 3px solid black;
+    width: 400px;
+    height: 200px;
+}
+#wordContainer {
+    padding-left: 25em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+    width: 80em;
+    display: flex;
+}
+#countEndGame {
+    padding-left: 20px;
+}
+h4 {
+    text-align: center;
+}
+#alphabetButtonList {
+    text-align: center;
+}
+#wordAtFind {
+    min-width: 10%;
+}
+#playerList {
+    padding-top: 3%;
+    margin-left: 10%;
+}
+.alphabetButton {
+    width: 15px;
+    height: 20px;
+}
+#launchButton {
+    text-align: center;
+}
